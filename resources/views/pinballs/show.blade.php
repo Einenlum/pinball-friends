@@ -40,12 +40,12 @@
 
         <x-form name="create-score" method="POST" action="{{ route('scores.store', $pinball->id) }}">
             <x-form-header text="Add a score" />
-            <div class="dark:text-white text-sm w-4/5 text-center mx-auto my-2">
+            <div class="dark:text-white text-sm w-4/5 text-center mx-auto mt-2 mb-8">
                 <span class="text-secondcolor-500 i-lucide-message-circle-warning"></span>
                 This score will replace previous score by the same player.
             </div>
 
-            <x-text-input name="value" label="Score" />
+            <x-text-input name="value" label="Score - use dot ( . ) for decimals" placeholder="Score" />
 
             <x-checkbox type="checkbox" name="in_millions" label="Score in millions (x 1 000 000)" checked />
 
