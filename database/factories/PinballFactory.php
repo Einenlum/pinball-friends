@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Gig;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,9 +17,12 @@ class PinballFactory extends Factory
      */
     public function definition(): array
     {
-        $additionalInfo = random_int(0, 1) ? $this->faker->text() : null;
+        $additionalInfo = random_int(0, 1) ? $this->faker->text(random_int(5, 20)) : null;
+
+        $randomGig = Gig::inRandomOrder()->first();
 
         return [
+            'gig_id' => $randomGig->id,
             'name' => $this->faker->name(),
             'additional_info' => $additionalInfo,
         ];

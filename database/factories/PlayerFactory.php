@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Gig>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Player>
  */
-class GigFactory extends Factory
+class PlayerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,11 +16,8 @@ class GigFactory extends Factory
      */
     public function definition(): array
     {
-        $additionalInfo = random_int(0, 1) ? $this->faker->text(random_int(5, 20)) : null;
-
         return [
             'name' => $this->faker->name(),
-            'additional_info' => $additionalInfo,
         ];
     }
 }
