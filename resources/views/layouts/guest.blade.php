@@ -14,6 +14,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-cursive text-gray-900 antialiased bg-gray-100 dark:bg-nightmainbg-dark">
+        @env('demo')
+            <x-demo-banner />
+        @endenv
+
         <x-application-logo />
 
         <div class="mx-auto w-full min-h-screen sm:min-h-0 mt-6 px-6 pt-4 pb-12 sm:pb-24 sm:mb-8 sm:w-4/5 md:w-3/4 lg:w-1/2 bg-white dark:bg-nightmainbg shadow-md sm:rounded-lg bg-gradient-to-b from-gray-100 to-transparent from-0% via-white via-10% sm:bg-none dark:bg-none">
