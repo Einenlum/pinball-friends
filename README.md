@@ -6,6 +6,8 @@ A minimalistic app to store pinball scores between friends.
 
 No user authentication, just an easy-to-use app. See [security](#Security) if you want HTTP Basic protection.
 
+A live demo is available [here](https://demo.pinball-friends.com/).
+
 ## Requirements
 
 - PHP (>= 8.1), composer, node >= 18.0.
