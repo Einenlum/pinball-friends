@@ -36,9 +36,11 @@ The app can be easily deployed on many hosting services since it uses Laravel (P
 
 If you want to host it on [Fly](https://fly.io), which offers a generous free tier, follow these instructions (an adapted [Dockerfile](Dockerfile) is already present in this repository):
 
-- Install flyctl and log in.
+- [Install flyctl](https://fly.io/docs/hands-on/install-flyctl/) and [log in](https://fly.io/docs/hands-on/sign-in/).
 - Change the `app` variable in [fly.toml](fly.toml) and choose a unique name.
-- `flyctl launch`
+- `flyctl apps create <APP_NAME>`
+- `flyctl volume create my_database_volume -n 1 -r <REGION>>` (see available regions on fly [here](https://fly.io/docs/reference/regions/))
+- Add metedata on the volume if needed
 - `flyctl deploy`
 
 ## Security
