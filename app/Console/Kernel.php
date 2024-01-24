@@ -12,7 +12,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        if (app()->environment('demo')) {
+            $schedule->command('migrate:fresh', [
+                '--seed' => true,
+                '--seeder' => 'Database\Seeders\DemoSeeder',
+                '-n' => true,
+                '--force' => true,
+            ])->hourly();
+        }
     }
 
     /**

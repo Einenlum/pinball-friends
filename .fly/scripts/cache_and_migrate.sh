@@ -4,8 +4,7 @@
 
 if [ "$APP_ENV" == "demo" ]
 then
-    /usr/bin/php /var/www/html/artisan migrate:fresh -n --force
-    /usr/bin/php /var/www/html/artisan db:seed --class="Database\Seeders\DemoSeeder" -n --force
+    /usr/bin/php /var/www/html/artisan migrate:fresh --seed --seeder="Database\Seeders\DemoSeeder" -n --force
 else
     /usr/bin/php /var/www/html/artisan migrate -n --force
 fi
