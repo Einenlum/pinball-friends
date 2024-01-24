@@ -1,4 +1,4 @@
-app = "pinball-friends"
+app = "demo-pinball-friends"
 primary_region = "cdg"
 console_command = "php /var/www/html/artisan tinker"
 
@@ -8,11 +8,11 @@ console_command = "php /var/www/html/artisan tinker"
     PHP_VERSION = "8.2"
 
 [env]
-  APP_ENV = "production"
-  APP_NAME="Pinball Friends"
-  APP_LOCALE="fr-FR"
+  APP_ENV = "demo"
+  APP_NAME="Demo Pinball Friends"
+  APP_LOCALE="en"
   DB_CONNECTION = "sqlite"
-  DB_DATABASE = "/var/www/html/my_database_volume/db.sqlite"
+  DB_DATABASE = "/var/www/html/my_demo_database_volume/db.sqlite"
   LOG_CHANNEL = "stderr"
   LOG_LEVEL = "info"
   LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
@@ -20,8 +20,8 @@ console_command = "php /var/www/html/artisan tinker"
   SESSION_SECURE_COOKIE = "true"
 
 [[mounts]]
-  source = "my_database_volume"
-  destination = "/var/www/html/my_database_volume"
+  source = "my_demo_database_volume"
+  destination = "/var/www/html/my_demo_database_volume"
   auto_extend_size_threshold = 0
 
 [http_service]
