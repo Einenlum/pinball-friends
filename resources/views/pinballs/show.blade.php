@@ -25,7 +25,7 @@
             <div class="text-lg text-gray-900 dark:text-gray-100">
                 @foreach ($pinball->scores as $score)
                     <x-ordered-item position="{{ $loop->iteration }}">
-                        {{humanize_value(config('app.locale'), $score->value) }} by <span class="normal-case font-bold">{{$score->player->name}}</span>
+                        {{humanize_value(app()->getLocale(), $score->value) }} by <span class="normal-case font-bold">{{$score->player->name}}</span>
                     </x-ordered-item>
 
                     @if ($loop->first)

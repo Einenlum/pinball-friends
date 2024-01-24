@@ -29,7 +29,7 @@
                 <x-link-item href="{{ route('pinballs.show', $pinball->id) }}">
                     {{ $pinball->name }}
                     @if ($bestScore = $pinball->bestScore())
-                        <span class="text-sm text-gray-500 dark:text-gray-300 group-hover:text-gray-200">({{ humanize_value(config('app.locale'), $bestScore->value) }} by {{ $bestScore->player->name }}) </span>
+                        <span class="text-sm text-gray-500 dark:text-gray-300 group-hover:text-gray-200">({{ humanize_value(app()->getLocale(), $bestScore->value) }} by {{ $bestScore->player->name }}) </span>
                     @endif
                 </x-link-item>
             @endforeach

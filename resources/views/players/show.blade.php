@@ -27,7 +27,7 @@
         @foreach ($player->bestScores() as $score)
             <x-ordered-item position="{{ $score->position }}" href="{{ route('pinballs.show', $score->pinball->id) }}">
                 {{ $score->pinball->name }} ({{ $score->pinball->gig->name }}) -
-                {{humanize_value(config('app.locale'), $score->value) }}
+                {{humanize_value(app()->getLocale(), $score->value) }}
             </x-ordered-item>
         @endforeach
     @else
