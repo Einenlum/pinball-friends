@@ -10,6 +10,7 @@ console_command = "php /var/www/html/artisan tinker"
 [env]
   APP_ENV = "demo"
   APP_NAME="Demo Pinball Friends"
+  APP_URL="https://demo.pinball-friends.com"
   APP_LOCALE="en"
   DB_CONNECTION = "sqlite"
   DB_DATABASE = "/var/www/html/my_demo_database_volume/db.sqlite"

@@ -10,6 +10,7 @@ console_command = "php /var/www/html/artisan tinker"
 [env]
   APP_ENV = "production"
   APP_NAME="Pinball Friends"
+  APP_URL="https://pinball-friends.fly.dev"
   APP_LOCALE="fr-FR"
   DB_CONNECTION = "sqlite"
   DB_DATABASE = "/var/www/html/my_database_volume/db.sqlite"
