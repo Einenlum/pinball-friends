@@ -7,6 +7,7 @@
         @if(app()->environment('local'))
             <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         @endif
+        <link rel="icon" href="{{ url('favicon.svg') }}">
 
         <title>{{ config('app.name', 'Pinball Friends') }}</title>
 
