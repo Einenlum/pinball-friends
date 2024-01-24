@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-breadcrumb />
         <x-action-list>
-            <x-action-button href="{{ route('players.create') }}">
+            <x-action-button :href="route('players.create')">
                 Add a player
             </x-action-button>
         </x-action-list>
@@ -10,7 +10,7 @@
 
         <x-page>
             @foreach ($players as $player)
-            <x-link-item href="{{ route('players.show', $player->id) }}">
+            <x-link-item :href="route('players.show', $player->id)">
                 {{ $player->name }}
             </x-link-item>
             @endforeach

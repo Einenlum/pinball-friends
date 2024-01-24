@@ -2,14 +2,14 @@
     <x-breadcrumb :model="$pinball" />
 
     <x-action-list>
-        <x-action-button href="{{ route('pinballs.edit', $pinball->id) }}">
+        <x-action-button :href="route('pinballs.edit', $pinball->id)">
             Edit pinball
         </x-action-button>
-        <x-delete-button name="delete-pinball" action="{{ route('pinballs.destroy', $pinball->id) }}" label="Delete Pinball">
+        <x-delete-button name="delete-pinball" :action="route('pinballs.destroy', $pinball->id)" label="Delete Pinball">
         </x-delete-button>
     </x-action-list>
 
-    <x-header additionalInfo="{{ $pinball->additional_info }}">
+    <x-header :additionalInfo="$pinball->additional_info">
         {{ $pinball->name }}
     </x-header>
 
@@ -24,7 +24,7 @@
 
             <div class="text-lg text-gray-900 dark:text-gray-100">
                 @foreach ($pinball->scores as $score)
-                    <x-ordered-item position="{{ $loop->iteration }}">
+                    <x-ordered-item :position="$loop->iteration">
                         {{humanize_value(app()->getLocale(), $score->value) }} by <span class="normal-case font-bold">{{$score->player->name}}</span>
                     </x-ordered-item>
 
@@ -38,7 +38,7 @@
         </div>
 
 
-        <x-form name="create-score" method="POST" action="{{ route('scores.store', $pinball->id) }}">
+        <x-form name="create-score" method="POST" :action="route('scores.store', $pinball->id)">
             <x-form-header text="Add a score" />
             <div class="dark:text-white text-sm w-4/5 text-center mx-auto mt-2 mb-8">
                 <span class="text-secondcolor-500 i-lucide-message-circle-warning"></span>

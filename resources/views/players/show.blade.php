@@ -2,8 +2,8 @@
     <x-breadcrumb :model="$player" />
 
     <x-action-list>
-        <x-action-button href="{{ route('players.edit', $player->id) }}">Edit Player</x-action-button>
-        <x-delete-button action="{{ route('players.destroy', $player->id) }}" name="delete-player" label="Delete player" />
+        <x-action-button :href="route('players.edit', $player->id)">Edit Player</x-action-button>
+        <x-delete-button :action="route('players.destroy', $player->id)" name="delete-player" label="Delete player" />
     </x-action-list>
 
     <x-header>
@@ -25,7 +25,7 @@
         </div>
 
         @foreach ($player->bestScores() as $score)
-            <x-ordered-item position="{{ $score->position }}" href="{{ route('pinballs.show', $score->pinball->id) }}">
+            <x-ordered-item :position="$score->position" :href="route('pinballs.show', $score->pinball->id)">
                 {{ $score->pinball->name }} ({{ $score->pinball->gig->name }}) -
                 {{humanize_value(app()->getLocale(), $score->value) }}
             </x-ordered-item>

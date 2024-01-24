@@ -7,7 +7,7 @@
             </x-header>
 
             <x-page>
-                <x-form name="create-pinball" method="POST" action="{{ route('pinballs.store', $gig->id) }}">
+                <x-form name="create-pinball" method="POST" :action="route('pinballs.store', $gig->id)">
                     <x-text-input name="name" label="Pinball name" />
                     <x-text-input name="additional_info" label="Additional info (brand or year)" />
 
