@@ -9,6 +9,8 @@
 
     <x-header>Gigs</x-header>
 
+    <x-autocomplete-search :models="$searchableGigs" routeName="gigs.show" />
+
     <x-page>
         <div class="text-gray-900 dark:text-gray-100">
             @foreach ($gigs as $gig)

@@ -17,6 +17,8 @@
         {{ $gig->name }}
     </x-header>
 
+    <x-autocomplete-search :models="$searchablePinballs" routeName="pinballs.show" />
+
     <x-page>
         @if ($gig->pinballs->count() > 0)
             <x-header-2>

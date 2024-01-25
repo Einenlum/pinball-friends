@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gig;
+use App\Models\Pinball;
 use Illuminate\Http\Request;
 
 class GigController extends Controller
@@ -12,8 +13,17 @@ class GigController extends Controller
      */
     public function index()
     {
+        $gigs = Gig::all();
+        $searchableGigs = $gigs->map(function (Gig $gig) {
+            return [
+                'id' => $gig->id,
+                'name' => $gig->name,
+            ];
+        });
+
         return view('gigs.index', [
-            'gigs' => Gig::all()
+            'gigs' => $gigs,
+            'searchableGigs' => $searchableGigs,
         ]);
     }
 
@@ -47,8 +57,16 @@ class GigController extends Controller
      */
     public function show(Gig $gig)
     {
+        $searchablePinballs = $gig->pinballs->map(function (Pinball $pinball) {
+            return [
+                'id' => $pinball->id,
+                'name' => $pinball->name,
+            ];
+        });
+
         return view('gigs.show', [
-            'gig' => $gig
+            'gig' => $gig,
+            'searchablePinballs' => $searchablePinballs,
         ]);
     }
 

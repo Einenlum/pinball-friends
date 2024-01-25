@@ -12,8 +12,16 @@ class PlayerController extends Controller
      */
     public function index()
     {
+        $players = Player::all();
+        $searchablePlayers = $players->map(function (Player $player) {
+            return [
+                'id' => $player->id,
+                'name' => $player->name,
+            ];
+        });
         return view('players.index', [
-            'players' => Player::all()
+            'players' => Player::all(),
+            'searchablePlayers' => $searchablePlayers,
         ]);
     }
 

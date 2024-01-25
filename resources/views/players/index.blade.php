@@ -8,6 +8,8 @@
 
         <x-header>Players</x-header>
 
+        <x-autocomplete-search :models="$players" routeName="players.show" />
+
         <x-page>
             @foreach ($players as $player)
             <x-link-item :href="route('players.show', $player->id)">
