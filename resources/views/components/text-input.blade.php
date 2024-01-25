@@ -2,7 +2,7 @@
 $placeholder ??= $label;
 $hideLabel ??= false;
 
-$classes = 'shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-firstcolor-800 focus:ring-firstcolor-800 focus:ring-1';
+$classes = 'shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-firstcolor-800 focus:ring-firstcolor-800 focus:ring-1 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400';
 
 if ($errors->has($name)) {
     $classes .= ' border-red-500';

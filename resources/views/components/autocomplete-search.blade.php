@@ -6,7 +6,7 @@
     <form name="search">
         <div class="relative">
             <x-text-input type="text" class="form-control" id="search-input" name="search" label="Search" :hideLabel="true"/>
-            <div id="search-result" class="hidden min-h-20 z-50 border p-2 shadow rounded -mt-2 absolute w-full bg-gray-100">
+            <div id="search-result" class="hidden min-h-20 z-50 border p-2 shadow rounded -mt-2 absolute w-full bg-gray-100 dark:bg-gray-400">
             </div>
         </div>
     </form>
