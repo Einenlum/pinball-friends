@@ -1,6 +1,6 @@
 <div class="pt-6 sm:pb-8 sm:pt-12 md:py-12 mx-auto text-center fill-current">
 <a href="{{ route('home') }}" class="block text-center mx-auto">
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-20 h-20 sm:w-32 sm:h-32 mx-auto text-center text-firstcolor-900 dark:text-gray-400"
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-20 h-20 sm:w-32 sm:h-32 mx-auto text-center fill-firstcolor-900 dark:fill-gray-400"
 	 viewBox="0 0 422.666 422.666" xml:space="preserve">
 <g>
 	<path d="M210.712,276.293l82.19-112.294c0.83-1.134,1.004-2.62,0.459-3.915s-1.729-2.209-3.121-2.408l-90.313-12.902
