@@ -41,7 +41,7 @@ If you want to host it on [Fly](https://fly.io), which offers a generous free ti
 - [Install flyctl](https://fly.io/docs/hands-on/install-flyctl/) and [log in](https://fly.io/docs/hands-on/sign-in/).
 - Change the `app` variable in [fly.toml](fly.toml) and choose a unique name.
 - `flyctl apps create <APP_NAME>`
-- `flyctl volume create my_database_volume -n 1 -r <REGION>>` (see available regions on fly [here](https://fly.io/docs/reference/regions/))
+- `flyctl volume create my_database_volume -n 1 -r <REGION>>` (see available regions on fly [here](https://fly.io/docs/reference/regions/)). Use only one volume if you're using SQLite.
 - Add metedata on the volume if needed
 - `flyctl deploy`
 
