@@ -17,103 +17,104 @@
 </template>
 
 <script>
-    const models = @json($models);
+    {
+        const models = @json($models);
 
-    const form = document.forms.search;
-    const searchInput = document.getElementById('search-input');
-    const searchResult = document.getElementById('search-result');
+        const form = document.forms.search;
+        const searchInput = document.getElementById('search-input');
+        const searchResult = document.getElementById('search-result');
 
-    searchInput.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
+        searchInput.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
 
-            const results = document.querySelectorAll('[data-class="search-result"]');
-            if (results.length === 0) {
-                return;
-            }
+                const results = document.querySelectorAll('[data-class="search-result"]');
+                if (results.length === 0) {
+                    return;
+                }
 
-            const firstResult = results[0];
+                const firstResult = results[0];
 
-            firstResult.focus();
-        }
-    });
-
-    searchResult.addEventListener('keydown', function (e) {
-        if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
-            return;
-        }
-
-        e.preventDefault();
-        const focusedResult = document.querySelector('[data-class="search-result"]:focus');
-
-        if (focusedResult === null) {
-            return;
-        }
-
-        if (e.key === 'ArrowUp') {
-            const previous = focusedResult.previousElementSibling;
-            if (previous === null) {
-                searchInput.focus();
-
-                return;
-            }
-
-            focusedResult.previousElementSibling.focus();
-
-            return;
-        }
-
-        if (e.key === 'ArrowDown') {
-            const next = focusedResult.nextElementSibling;
-            if (next !== null) {
-                next.focus();
-
-                return;
-            }
-
-            // find first result
-            const firstResult = document.querySelector('[data-class="search-result"]');
-            if (firstResult !== null) {
                 firstResult.focus();
+            }
+        });
+
+        searchResult.addEventListener('keydown', function (e) {
+            if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
+                return;
+            }
+
+            e.preventDefault();
+            const focusedResult = document.querySelector('[data-class="search-result"]:focus');
+
+            if (focusedResult === null) {
+                return;
+            }
+
+            if (e.key === 'ArrowUp') {
+                const previous = focusedResult.previousElementSibling;
+                if (previous === null) {
+                    searchInput.focus();
+
+                    return;
+                }
+
+                focusedResult.previousElementSibling.focus();
 
                 return;
             }
-        }
-    });
 
+            if (e.key === 'ArrowDown') {
+                const next = focusedResult.nextElementSibling;
+                if (next !== null) {
+                    next.focus();
 
-    searchInput.addEventListener('input', function (e) {
-        const search = e.target.value;
+                    return;
+                }
 
-        if (search.length < 2) {
-            searchResult.classList.add('hidden');
+                // find first result
+                const firstResult = document.querySelector('[data-class="search-result"]');
+                if (firstResult !== null) {
+                    firstResult.focus();
 
-            return;
-        }
-
-        const filteredModels = models.filter(model => model.name.toLowerCase().includes(search.toLowerCase()));
-
-        searchResult.innerHTML = '';
-
-        if (filteredModels.length === 0) {
-            return;
-        }
-
-        const template = document.getElementById('search-result-template');
-
-        filteredModels.forEach(model => {
-            const clonedTemplate = template.content.cloneNode(true);
-            const a = clonedTemplate.querySelector('a');
-
-            a.innerHTML = model.name;
-            a.dataset.id = model.id;
-            a.href = route('{{ $routeName }}', model.id);
-
-            searchResult.appendChild(a);
-
-            searchResult.classList.remove('hidden');
+                    return;
+                }
+            }
         });
-    });
+
+        searchInput.addEventListener('input', function (e) {
+            const search = e.target.value;
+
+            if (search.length < 2) {
+                searchResult.classList.add('hidden');
+
+                return;
+            }
+
+            const filteredModels = models.filter(model => model.name.toLowerCase().includes(search.toLowerCase()));
+
+            searchResult.innerHTML = '';
+
+            if (filteredModels.length === 0) {
+                return;
+            }
+
+            const template = document.getElementById('search-result-template');
+
+            filteredModels.forEach(model => {
+                const clonedTemplate = template.content.cloneNode(true);
+                const a = clonedTemplate.querySelector('a');
+
+                a.innerHTML = model.name;
+                a.dataset.id = model.id;
+                a.href = route('{{ $routeName }}', model.id);
+
+                searchResult.appendChild(a);
+
+                searchResult.classList.remove('hidden');
+            });
+        });
+    }
 </script>
 
 @endif
